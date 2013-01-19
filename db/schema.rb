@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119052616) do
+ActiveRecord::Schema.define(:version => 20130119053931) do
 
   create_table "criteria", :force => true do |t|
     t.integer  "helpful"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20130119052616) do
   create_table "evaluations", :force => true do |t|
     t.string   "location"
     t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "session_id"
+  end
+
+  add_index "evaluations", ["session_id"], :name => "index_evaluations_on_session_id"
+
+  create_table "sessions", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
