@@ -29,6 +29,8 @@ GEM
       activesupport (= 3.2.8)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-postgis-adapter (0.5.0)
+      rgeo-activerecord (~> 0.4.6)
     activeresource (3.2.8)
       activemodel (= 3.2.8)
       activesupport (= 3.2.8)
@@ -131,6 +133,7 @@ GEM
     multi_json (1.5.0)
     newrelic_rpm (3.5.5.38)
     nokogiri (1.5.6)
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.4)
     rack-cache (1.2)
@@ -158,6 +161,11 @@ GEM
     rdiscount (1.6.8)
     rdoc (3.12)
       json (~> 1.4)
+    rgeo (0.3.20)
+    rgeo-activerecord (0.4.6)
+      activerecord (>= 3.0.3)
+      arel (>= 2.0.6)
+      rgeo (>= 0.3.20)
     rspec (2.9.0)
       rspec-core (~> 2.9.0)
       rspec-expectations (~> 2.9.0)
@@ -225,6 +233,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers!
+  activerecord-postgis-adapter
   airbrake
   coffee-rails (~> 3.2.1)
   compass-rails (~> 1.0.3)
@@ -237,8 +246,11 @@ DEPENDENCIES
   jquery-rails
   launchy
   newrelic_rpm
+  pg
   rails (= 3.2.8)
   rdiscount
+  rgeo
+  rgeo-activerecord
   rspec-given
   rspec-rails (~> 2.9.0)
   sass-rails (~> 3.2.3)

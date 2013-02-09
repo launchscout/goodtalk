@@ -1,4 +1,4 @@
 class Criteria < ActiveRecord::Base
   belongs_to :evaluation
-  attr_accessible :comments, :engaging, :helpful
+  attr_accessible :style_and_delivery, :speaker_expertise, :slides_and_demo, :met_expectations, :like_best, :like_least
 end

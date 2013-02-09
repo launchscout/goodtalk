@@ -11,35 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119131705) do
+ActiveRecord::Schema.define(:version => 20130130124542) do
 
   create_table "criteria", :force => true do |t|
-    t.integer  "helpful"
-    t.integer  "engaging"
-    t.string   "comments"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "evaluation_id"
+    t.integer  "style_and_delivery"
+    t.integer  "speaker_expertise"
+    t.integer  "slides_and_demo"
+    t.integer  "met_expectations"
+    t.string   "like_best"
+    t.string   "like_least"
   end
 
   add_index "criteria", ["evaluation_id"], :name => "index_criteria_on_evaluation_id"
 
   create_table "evaluations", :force => true do |t|
-    t.string   "location"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                                             :null => false
+    t.datetime "updated_at",                                                             :null => false
     t.integer  "session_id"
+    t.spatial  "lonlat",     :limit => {:srid=>4326, :type=>"point", :geographic=>true}
   end
 
   add_index "evaluations", ["session_id"], :name => "index_evaluations_on_session_id"
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.string   "location"
     t.datetime "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                                             :null => false
+    t.datetime "updated_at",                                                             :null => false
+    t.spatial  "lonlat",     :limit => {:srid=>4326, :type=>"point", :geographic=>true}
   end
 
   create_table "sessions", :force => true do |t|

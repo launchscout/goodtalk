@@ -1,11 +1,14 @@
 development: &default
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: postgis
+  schema_search_path: "public,postgis"
+  postgis_extension: true
+  database: goodtalk_dev
   pool: 5
+  encoding: unicode
 
 test: &test
   <<: *default
-  database: db/test.sqlite3
+  database: goodtalk_test
 
 cucumber:
   <<: *test

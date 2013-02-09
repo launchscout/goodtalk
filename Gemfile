@@ -10,7 +10,11 @@ gem 'thin'
 gem 'haml-rails'
 gem 'rdiscount'
 gem 'airbrake'
-gem "active_model_serializers", :git => "git://github.com/rails-api/active_model_serializers.git"
+gem 'active_model_serializers', :git => "git://github.com/rails-api/active_model_serializers.git"
+gem 'rgeo'
+gem 'rgeo-activerecord'
+gem 'pg'
+gem 'activerecord-postgis-adapter'
 
 group :development do
   gem 'foreman'
